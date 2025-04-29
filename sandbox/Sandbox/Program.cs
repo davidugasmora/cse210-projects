@@ -15,6 +15,8 @@ class Program
         {
             Console.WriteLine($"Bob is cool: {i}");
         }
+
+        // This is a fun comment.
         
     }
 }
