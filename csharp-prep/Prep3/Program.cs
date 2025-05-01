@@ -9,7 +9,7 @@ class Program
 
         bool is_done = false;
 
-        while (is_done == false)
+        while (!is_done)
         {
             Console.Write("What is your guess? ");
             string str_guess = Console.ReadLine();
