@@ -1,59 +1,39 @@
 using System;
 
-class Program
+class Circle
 {
-    static double Addnumbers(double a, double b)
+    private double _radius;
+
+    public void SetRadius(double radius)
     {
-        return a + b;
+        if (radius < 0 )
+        {
+            Console.WriteLine("Error");
+            return;
+        }
+
+        _radius = radius;
     }
 
-    static void DisplayGreeting()
+    public double GetRadius()
     {
-        Console.WriteLine("Hello Bob, how are you?");
+        return _radius;
     }
 
-    static void Main(string[] args)
+    public double GetArea()
+    {
+        return Math.PI * _radius * _radius;
+    }
+}
+
+class Program
+{    static void Main(string[] args)
     {
 
-        int x = 10;
-        if (x == 10)
-        {
-            Console.WriteLine("X is 10");
-        }
-
-        for (int i = 0; i < x; i++)
-        {
-            Console.WriteLine($"Bob is cool: {i}");
-        }
-
-        List<int> myNumbers = new List<int>();
-        myNumbers.Add(10);
-        myNumbers.Add(99);
-        myNumbers.Add(-123);
-
-        foreach (int myNumber in myNumbers)
-        {
-            Console.WriteLine(myNumber);
-        }
-        
-        // This is a fun comment.
-
-        double total = Addnumbers(123.4546, 987.1234);
-        Console.WriteLine(total);
-
-        DisplayGreeting();
-
-        bool done = false;
-
-        while (!done)
-        {
-            done = true;
-        }
-
-        do 
-        {
-            Console.WriteLine("");
-        }while(!done);
+        Circle myCircle = new Circle();
+        myCircle.SetRadius(10);
+        Console.WriteLine($"{myCircle.GetRadius()}");
+        Console.WriteLine($"{myCircle.GetArea()}");
 
     }
 }
