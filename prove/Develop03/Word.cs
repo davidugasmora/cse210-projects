@@ -6,6 +6,7 @@ class Word
     public Word(string word)
     {
         _word = word;
+        _hidden = false;
     }
 
     public bool IsHidden()

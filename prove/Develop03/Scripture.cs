@@ -1,5 +1,3 @@
-using System.Diagnostics.Metrics;
-
 class Scripture
 {
     private List<Word> _words = new List<Word>();
