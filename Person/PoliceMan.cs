@@ -7,4 +7,9 @@ class PoliceMan : Person
     {
         _weapons = weapons;
     }
+
+    public string GetPoliceManInforamtion()
+    {
+        return $"Weapons: {_weapons} :: {GetPersonInformation()}";
+    }
 }

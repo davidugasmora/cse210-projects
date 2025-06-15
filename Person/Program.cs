@@ -7,5 +7,9 @@
 
         PoliceMan myPoliceman = new PoliceMan("Cooper", "Silver", 34, "club");
         Console.WriteLine(myPoliceman.GetPersonInformation());
+        Console.WriteLine(myPoliceman.GetPoliceManInforamtion());
+
+        Doctor myDoctor = new Doctor("Bob", "Payne", 56, "Hammer");
+        Console.WriteLine(myDoctor.GetDoctorInforamtion());
     }
 }
