@@ -26,28 +26,20 @@ class SimpleGoal : Goal
         string description = Console.ReadLine();
         SetDescription(description);
 
-        while (true)
-        {
-            Console.Write("\nWhat is the amount of points associated with this goal? ");
-            string strPoints = Console.ReadLine();
-
-            if (int.TryParse(strPoints, out int points))
-            {
-                SetPoints(points);
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("\nInvalid input, please enter an integer");
-            }
-        }
-
+        SetPoints(ValidateInt("What is the amount of points associated with this goal? "));
     }
     public override int RecordEvent()
     {
-        SetStatus(true);
-        Console.WriteLine($"\nCongratulations! You have earned {GetPoints()} points!");
-        return GetPoints();
+        if (!GetStatus())
+        {
+            SetStatus(true);
+            Console.WriteLine($"\nCongratulations! You have earned {GetPoints()} points!");
+            return GetPoints();
+        }
+        else
+        {
+            Console.WriteLine("\nGoal already finished.");
+            return 0;
+        }
     }
 }

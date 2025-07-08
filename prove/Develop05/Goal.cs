@@ -18,10 +18,10 @@ abstract class Goal
     }
     public Goal()
     {
-        _name = "";
-        _description = "";
-        _points = 0;
-        _status = false;
+        SetName("");
+        SetDescription("");
+        SetPoints(0);
+        SetStatus(false);
     }
 
     public string GetName()
@@ -57,7 +57,38 @@ abstract class Goal
         _status = status;
     }
 
-    public virtual string GetGoalType()
+    public int ValidateInt(string question)
+    {
+        while (true)
+        {
+            Console.Write($"\n{question}");
+            string strNumber = Console.ReadLine();
+
+            if (int.TryParse(strNumber, out int Number))
+            {
+                return Number;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("\nInvalid input, please enter an integer");
+            }
+        }
+    }
+
+    public virtual int GetNumberOfCompletions()
+    {
+        return 0;
+    }
+    public virtual int GetMaxGoals()
+    {
+        return 0;
+    }
+    public virtual int GetBonusPoints()
+    {
+        return 0;
+    }
+    public string GetGoalType()
     {
         _goalType = this.GetType().Name;
         return _goalType;

@@ -1,43 +1,32 @@
 using System;
 
 class Program
-{    static void Main(string[] args)
+{
+    static void TestByRef(int x, ref string name)
     {
-        int sleepTime = 250;
-        int time = 9;
+        x++;
+        name += "Plus Betty.";
+        Console.WriteLine($"In TestByRef: {x}, {name}");
+    }
 
-        DateTime currentTime = DateTime.Now;
-        DateTime endTime = currentTime.AddSeconds(10);
+    static void TestByOut(out int x)
+    {
+        x = 120;
+        Console.WriteLine($"In TestByRef: {x}");
+    }
 
-        string animationStringLoad = "-+\\|/";
-        int index = 0;
+    static void Main(string[] args)
+    {
+        int x = 10;
+        string name = "Bob ";
 
-        //while (DateTime.Now < endTime)
-        //{
-        //    Console.Write(animationStringLoad[index++ % animationStringLoad.Length]);
-        //    Thread.Sleep(sleepTime);
-        //    Console.Write("\b");
-        //}
+        TestByRef(x, ref name);
 
-        int count = time;
+        Console.WriteLine($"In Main: {x}, {name}");
 
-        while (DateTime.Now < endTime)
-        {
-            Console.Write(count--);
-            Thread.Sleep(1000);
-            Console.Write("\b");
-        }
+        int z;
 
-        string animationString = "(^_^)(-_-)";
-
-        while (DateTime.Now < endTime)
-        {
-            Console.Write(animationString[0..5]);
-            Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
-            Console.Write(animationString[5..]);
-            Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
-        }
+        TestByOut(out z);
+        Console.WriteLine($"In main: {z}");
     }
 }

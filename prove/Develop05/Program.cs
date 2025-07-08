@@ -26,8 +26,14 @@ class Program
                             myGoals.AddGoal(mySimplyGoal);
                             break;
                         case 2:
+                            EternalGoal myEternalGoal = new EternalGoal();
+                            myEternalGoal.RunGoal();
+                            myGoals.AddGoal(myEternalGoal);
                             break;
                         case 3:
+                            CheckListGoal myCheckListGoal = new CheckListGoal();
+                            myCheckListGoal.RunGoal();
+                            myGoals.AddGoal(myCheckListGoal);
                             break;
                     }
                     break;
