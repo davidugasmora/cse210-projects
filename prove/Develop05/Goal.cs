@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Dynamic;
 
 abstract class Goal
 {
@@ -51,7 +52,16 @@ abstract class Goal
     {
         return _status;
     }
+    public void SetStatus(bool status)
+    {
+        _status = status;
+    }
 
+    public virtual string GetGoalType()
+    {
+        _goalType = this.GetType().Name;
+        return _goalType;
+    }
     public abstract void RunGoal();
     public abstract int RecordEvent();
 }

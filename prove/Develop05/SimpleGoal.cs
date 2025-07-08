@@ -6,12 +6,18 @@ class SimpleGoal : Goal
 
     }
 
+    public SimpleGoal()
+    {
+        SetName("");
+        SetDescription("");
+        SetPoints(0);
+        SetStatus(false);
+    }
+
 
 
     public override void RunGoal()
     {
-        Console.Clear();
-
         Console.Write("\nWhat is the name of the goal you want to create: ");
         string name = Console.ReadLine();
         SetName(name);
@@ -36,10 +42,12 @@ class SimpleGoal : Goal
                 Console.WriteLine("\nInvalid input, please enter an integer");
             }
         }
-        
+
     }
     public override int RecordEvent()
     {
-        throw new NotImplementedException();
+        SetStatus(true);
+        Console.WriteLine($"\nCongratulations! You have earned {GetPoints()} points!");
+        return GetPoints();
     }
 }
